@@ -1,1 +1,31 @@
-
+import java.io.PrintStream;
+import java.util.Scanner;
+public class Main {
+   public static Scanner in = new Scanner(System.in);
+   public static PrintStream out = System.out;
+   public static void main(String[] args) {
+      double a = in.nextDouble(); // вводим число a
+      double b = in.nextDouble(); // вводим число b
+      if (b==0) { // проверяем равно ли b нулю
+            out.print("Ошибка. b не может быть равным 0");
+            return;
+        }
+        if (b>0) { // если b не равно нулю, определяем знак b (b>0)
+            if (a==0) { // проверям равно ли a нулю
+                out.print("x∈(-∞; 0)∪(0; +∞)");
+            } else if (a>0) { // если a не равно нулю, определяем знак a (a>0)
+                out.print("x∈(-∞; 0)∪[" + a + "; +∞)");
+            } else { // (a<0)
+                out.print("x∈(-∞; " + a + "]∪(0; +∞)");
+            }
+        } else { // (b<0)
+            if (a==0) { // проверяем равно ли a нулю
+                out.print("x∈Ø");
+            } else if (a>0) { // если a не равно нулю проверяем знак a (a>0)
+                out.print("x∈(0; " + a + "]");
+            } else { // (a<0)
+                out.print("x∈[" + a + "; 0)");
+            }
+        }
+    }
+}
